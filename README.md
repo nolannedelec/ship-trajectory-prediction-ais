@@ -14,7 +14,7 @@ Avant d'écrire la première ligne de code, le système a été entièrement mod
 * **Modélisation de Données :** Conception d'une base relationnelle (MCD) optimisée pour les séries temporelles maritimes.
     * [Voir le Modèle Conceptuel de Données (PDF)](/04_docs/MCD.pdf)
 * **Gestion de Projet :** Suivi rigoureux des délais et des jalons.
-    * [Voir le Diagramme de Gantt (PDF)](/04_docs/Copie%20de%20Diagramme%20de%20Gantt%20Projet%20Web.pdf)
+    * [Voir le Diagramme de Gantt (PDF)](/04_docs/Diagramme%20de%20Gantt.pdf)
 
 ---
 
