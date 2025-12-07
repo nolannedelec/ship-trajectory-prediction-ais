@@ -1,0 +1,127 @@
+<!DOCTYPE html> <!-- Déclare le type de document comme HTML5 -->
+<html lang="fr"> <!-- Commence le document HTML avec la langue définie sur le français -->
+  <head>
+    <link rel="icon" type="image/png" href="images/logo_header.png" />
+    <meta charset="UTF-8" /> <!-- Définit l'encodage des caractères en UTF-8 -->
+    <title>NaviTrack – Voir mon bateau</title> <!-- Titre de la page affiché dans l'onglet du navigateur -->
+
+    <!-- Importation de la police Inter depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    
+    <!-- Lien vers la feuille de style principale -->
+    <link href="./css/main.css" rel="stylesheet" />
+
+    <!-- Importation de la bibliothèque Plotly pour les graphiques interactifs -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  </head>
+  <body>
+    <!-- HEADER : Barre de navigation principale -->
+    <header class="menu_actions">
+      <div class="logo_header"> <!-- Contient le logo cliquable -->
+        <a href="acceuil.html" target="_blank"><img src="images/logo_header.png" alt="Logo Navitrack" class="logo_img" /></a>
+      </div>
+      <div class="boutons_menu"> <!-- Contient les boutons du menu -->
+        <!-- Bouton vers la page d'ajout de bateau -->
+        <a href="ajouter_mon_bateau.html" target="_blank"><div class="bloc_action"><span class="texte_action">Ajouter mon bateau</span></div></a>
+
+        <!-- Bouton actif vers la page actuelle (Voir mon bateau) -->
+        <a href="visualisation.html" target="_blank"><div class="bloc_action primary"><span class="texte_action">Voir mon bateau</span></div></a>
+
+        <!-- Bouton vers la page de prédiction de type de bateau -->
+        <a href="typetrajectoire.html" target="_blank"><div class="bloc_action"><span class="texte_action">De quel type est mon bateau?</span></div></a>
+      </div>
+    </header>
+
+    <!-- CONTENU PRINCIPAL DE LA PAGE -->
+    <main>
+      <h1>Voir mon bateau</h1> <!-- Titre principal de la page -->
+
+      <!-- Sous-titre expliquant la fonctionnalité -->
+      <p class="subtitle">
+        Vous souhaitez observer la trajectoire d'un bateau en particulier ou même de plusieurs bateaux ? Sélectionnez un bateau dans le tableau ci-dessous !
+      </p>
+
+      <!-- Tableau listant les bateaux disponibles -->
+      <div class="table_container">
+        <div class="table_header"> <!-- En-tête du tableau -->
+          <h3>Sélectionner un bateau</h3>
+          <div class="table_info">
+            <span id="total_bateaux">0 bateaux trouvés</span> <!-- Affiche le nombre de bateaux chargés -->
+          </div>
+        </div>
+        <div class="table_wrapper"> <!-- Conteneur scrollable du tableau -->
+          <table id="bateauTable">
+            <thead> <!-- En-têtes des colonnes -->
+              <tr>
+                <th class="col-select">Sélection</th>
+                <th class="col-mmsi">MMSI</th>
+                <th class="col-nom">Nom</th>
+                <th class="col-dimension">Longueur</th>
+                <th class="col-dimension">Largeur</th>
+                <th class="col-dimension">Tirant d'eau</th>
+                <th class="col-coordinate">Latitude</th>
+                <th class="col-coordinate">Longitude</th>
+                <th class="col-speed">SOG</th> <!-- Speed Over Ground -->
+                <th class="col-course">COG</th> <!-- Course Over Ground -->
+                <th class="col-course">Cap réel</th> <!-- Cap réel du navire -->
+                <th class="col-timestamp">Horodatage</th> <!-- Date et heure -->
+              </tr>
+            </thead>
+            <tbody></tbody> <!-- Corps du tableau, rempli dynamiquement en JS -->
+          </table>
+        </div>
+      </div>
+
+      <!-- Zone d'affichage des infos du bateau sélectionné -->
+      <div id="bateau_info" class="bateau_info" style="display: none;">
+        <h3>Trajectoire du bateau sélectionné</h3>
+        <div class="info_details">
+          <span id="bateau_details"></span> <!-- Affiche les détails textuels du bateau -->
+          <button id="clear_selection" class="btn_clear">Effacer la sélection</button> <!-- Bouton pour réinitialiser la sélection -->
+        </div>
+      </div>
+
+      <!-- Carte générée avec Plotly -->
+      <div class="map_container">
+        <div id="map" style="width: 100%; height: 500px;"></div> <!-- Zone de la carte interactive -->
+      </div>
+
+      <br>
+      <!-- Bouton pour accéder à la page des clusters -->
+      <div class="bouton_cluster">
+        <a href="cluster.html" target="_blank"><div class="bloc_action"><span class="texte_action">Voir les clusters</span></div></a>
+      </div>
+      <br><br><br>
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer class="footer">
+      <div class="footer_container">
+        <!-- Bloc logo + slogan -->
+        <div class="footer_logo">
+            <br>
+            <img src="images/logo_footer.png" alt="Logo Navitrack" class="logo_footer_img" />
+        </div>
+
+        <!-- Bloc contact -->
+        <div class="footer_contact">
+          <h4>Des questions ?</h4>
+          <p>tel: +33*********</p> <!-- Numéro de téléphone -->
+          <p>email: navitrack@*********</p> <!-- Adresse email -->
+          <a href="#">Nous contacter</a> <!-- Lien vers page de contact (à compléter) -->
+        </div>
+
+        <!-- Bloc "À propos" -->
+        <div class="footer_about">
+          <h4>À propos de nous</h4>
+          <p>Célian BOSSER</p>
+          <p>Nolan JAUFFRIT</p>
+          <p>Nolan NEDELEC</p> <!-- Noms des membres de l'équipe -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script JS principal chargé à la fin pour de meilleures performances -->
+    <script src="js/visualisation.js"></script>
+  </body>
+</html>

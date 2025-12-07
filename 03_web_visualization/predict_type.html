@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="images/logo_header.png" />
+    <!-- Importation des polices depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <!-- Lien vers le fichier CSS principal -->
+    <link href="./css/main.css" rel="stylesheet" />
+    <!-- Titre de l'onglet de la page -->
+    <title>Prédiction du Type de Bateau</title>
+  </head>
+  <body>
+    <!-- En-tête du site avec le logo et les boutons de navigation -->
+    <header class="menu_actions">
+      <div class="logo_header">
+        <!-- Logo cliquable menant vers la page d'accueil -->
+        <a href="accueil.html"><img src="images/logo_header.png" alt="Logo Navitrack" class="logo_img" /></a>
+      </div>
+      <div class="boutons_menu">
+        <!-- Liens vers les différentes fonctionnalités du site -->
+        <a href="ajouter_mon_bateau.html"><div class="bloc_action"><span class="texte_action">Ajouter mon bateau</span></div></a>
+        <a href="visualisation.html"><div class="bloc_action"><span class="texte_action">Voir mon bateau</span></div></a>
+        <a href="cluster.html"><div class="bloc_action"><span class="texte_action">Classer mon bateau</span></div></a>
+        <a href="typetrajectoire.html"><div class="bloc_action"><span class="texte_action">De quel type est mon bateau?</span></div></a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Section d'introduction de la page -->
+      <section style="margin-bottom: 40px;">
+        <h1>Prédiction du Type de Bateau</h1>
+        <p class="subtitle">
+          Sélectionnez un bateau dans la liste ci-dessous pour prédire son type à l'aide de l'intelligence artificielle.
+        </p>
+      </section>
+
+      <!-- Tableau de sélection des bateaux -->
+      <div class="table_container">
+        <div class="table_header">
+          <h3>Sélectionner un bateau</h3>
+          <div class="table_info">
+            <!-- Affichage dynamique du nombre de bateaux disponibles -->
+            <span id="boat_count">Chargement...</span> bateaux disponibles
+          </div>
+        </div>
+        <div class="table_wrapper">
+          <table id="bateauTable">
+            <thead>
+              <tr>
+                <!-- Entêtes des colonnes du tableau -->
+                <th class="col-select">Sélection</th>
+                <th class="col-mmsi">MMSI</th>
+                <th class="col-nom">Nom</th>
+                <th class="col-dimension">Longueur</th>
+                <th class="col-dimension">Largeur</th>
+                <th class="col-dimension">Tirant d'eau</th>
+                <th class="col-timestamp">Dernière position</th>
+              </tr>
+            </thead>
+            <tbody id="bateau_tbody">
+              <!-- Les données seront insérées ici dynamiquement via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Informations détaillées sur le bateau sélectionné -->
+      <div id="bateau_info" class="bateau_info" style="display: none;">
+        <h3>Bateau sélectionné</h3>
+        <div class="info_details">
+          <div id="selected_boat_info">
+            <!-- Les détails du bateau sélectionné seront affichés ici -->
+          </div>
+          <div>
+            <!-- Boutons pour lancer la prédiction ou effacer la sélection -->
+            <button id="predict_btn" class="bloc_action primary">Prédire le type</button>
+            <button id="clear_btn" class="btn_clear">Effacer la sélection</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section d'affichage des résultats de la prédiction -->
+      <div id="prediction_results" class="table_container" style="display: none; margin-top: 40px;">
+        <div class="table_header">
+          <h3>Résultats de la prédiction</h3>
+        </div>
+        <div style="padding: 24px;">
+          <div id="prediction_content">
+            <!-- Le contenu des résultats de la prédiction s'affichera ici -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Pied de page avec logo, contact et informations sur les auteurs -->
+    <footer class="footer">
+      <div class="footer_container">
+        <!-- Logo en pied de page -->
+        <div class="footer_logo">
+            <br>
+            <img src="images/logo_footer.png" alt="Logo Navitrack" class="logo_footer_img" />
+        </div>
+
+        <!-- Section contact -->
+        <div class="footer_contact">
+          <h4>Des questions ?</h4>
+          <p>tel: +33*********</p>
+          <p>email: navitrack@*********</p>
+          <a href="#">Nous contacter</a>
+        </div>
+
+        <!-- Section à propos des auteurs -->
+        <div class="footer_about">
+          <h4>À propos de nous</h4>
+          <p>Célian BOSSER</p>
+          <p>Nolan JAUFFRIT</p>
+          <p>Nolan NEDELEC</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Inclusion du script JavaScript de prédiction -->
+    <script src="js/predict_type.js"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+Test à 2025-06-17 22:44:30 - Méthode : POST
+Données reçues : Array
+(
+    [fnavire_name] => LA LUNA
+    [fnavire_state] => 4
+    [fnavire_mmsi] => 205776000
+    [fnavire_length] => 200
+    [fnavire_width] => 32
+    [fnavire_draft] => 7
+    [fnavire_hour] => 2025-06-18T00:25
+    [fnavire_lat] => 29.06649
+    [fnavire_lon] => -89.30204
+    [fnavire_COG] => 50.5
+    [fnavire_heading] => 47
+    [fnavire_sog] => 12.1
+)
+
+Données préparées : Array
+(
+    [nom] => LA LUNA
+    [etat] => 4
+    [mmsi] => 205776000
+    [length] => 200
+    [width] => 32
+    [draft] => 7
+    [horodatage] => 2025-06-18 00:25:00
+    [lat] => 29.06649
+    [lon] => -89.30204
+    [cog] => 50.5
+    [cap_reel] => 47
+    [sog] => 12.1
+)
+
+Requête SQL : INSERT INTO Bateau (mmsi, nom, id_statut, longueur, largeur, tirant_eau, horodatage, latitude, longitude, sog, cog, cap_reel)
+            VALUES (:mmsi, :nom, :etat, :length, :width, :draft, :horodatage, :lat, :lon, :sog, :cog, :cap_reel)
+PDOException : SQLSTATE[HY000]: General error: 1364 Field '    id_bateau' doesn't have a default value
+Test à 2025-06-17 22:44:36 - Méthode : GET
+Données reçues : Array
+(
+)
+
+Données préparées : Array
+(
+    [nom] => 
+    [etat] => 
+    [mmsi] => 
+    [length] => 
+    [width] => 
+    [draft] => 
+    [horodatage] => 
+    [lat] => 
+    [lon] => 
+    [cog] => 
+    [cap_reel] => 
+    [sog] => 
+)
+
+Exception : Les champs suivants sont requis ou invalides : nom, etat, mmsi, length, width, draft, horodatage, lat, lon, sog, cog, cap_reel

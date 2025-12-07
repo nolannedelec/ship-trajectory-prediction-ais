@@ -1,0 +1,795 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  background: #f0f4f8;
+  color: #000;
+}
+
+/* ---------- HEADER ---------- */
+
+.menu_actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 80px;
+  background-color: #9ed9fb;
+  position: relative;
+}
+
+.logo_header {
+  display: flex;
+  align-items: center;
+}
+
+.logo_img {
+  height: 90px;
+  width: auto;
+  cursor: pointer;
+}
+
+/* Menu à droite */
+.boutons_menu {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Boutons du menu */
+.bloc_action {
+  background-color: #212121;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.bloc_action:hover {
+  background-color: #1565c0;
+}
+
+.bloc_action.primary {
+  background-color: #1e88e5;
+}
+
+.bloc_action.primary:hover {
+  background-color: #1565c0;
+}
+
+/* ---------- CONTENU PRINCIPAL ---------- */
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 40px 0 10px 80px;
+}
+
+p.subtitle {
+  font-size: 18px;
+  color: #777;
+  margin-left: 80px;
+}
+.map_container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+}
+
+.map_container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+/* ---------- page ajouter_mon_bateau ---------- */
+.map_container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .map_container td {
+    padding: 12px 10px;
+    vertical-align: top;
+  }
+
+  .map_container td:first-child {
+    width: 40%;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  input[type="number"],
+  input[type="text"],
+  input[type="datetime-local"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #9ed9fb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #007BFF;
+  }
+
+
+/* ---------- IMAGES ACCEUIL ---------- */
+.image_grid {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.image_item {
+  text-align: center;
+}
+
+.image_item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover; /* Cela crop l'image */
+  border-radius: 12px; /* Facultatif : coins arrondis */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Facultatif : ombre douce */
+}
+/* ---------- Liens ---------- */
+a{
+    color: #00acc1;
+}
+
+a:hover {
+    color: #002b45;
+}
+a {
+  text-decoration: none;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+  background-color: #9ed9fb;
+  padding: 48px 80px;
+  color: #000;
+}
+
+.footer_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer_logo {
+  flex: 1 1 200px;
+}
+
+.logo_footer_img {
+  height: 92px;
+  width: auto;
+}
+
+.baseline {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+
+.footer_contact,
+.footer_about {
+  flex: 1 1 200px;
+}
+
+.footer_contact h4,
+.footer_about h4 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer_contact p,
+.footer_about p,
+.footer_contact a {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.footer_contact a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+/* ---------- page fonct 5 ---------- */
+.main-content {
+  margin: 40px 80px;
+}
+
+.intro-section {
+  margin-bottom: 40px;
+}
+
+.map_container {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.map {
+  height: 400px;
+  width: 100%;
+}
+
+.controls-section {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group select {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.bloc_action {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.bloc_action:hover {
+  background-color: #0056b3;
+}
+
+.bloc_action:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.legend {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-top: 10px;
+}
+
+.legend h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.legend-blue { 
+  background-color: blue; 
+}
+
+.legend-red { 
+  background-color: red; 
+}
+
+.legend-green { 
+  background-color: green; 
+  height: 3px; 
+  border-radius: 0; 
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  background: #f0f4f8;
+  color: #000;
+}
+
+/* ---------- HEADER ---------- */
+
+.menu_actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 80px;
+  background-color: #9ed9fb;
+  position: relative;
+}
+
+.logo_header {
+  display: flex;
+  align-items: center;
+}
+
+.logo_img {
+  height: 90px;
+  width: auto;
+  cursor: pointer;
+}
+
+/* Menu à droite */
+.boutons_menu {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.bouton_cluster{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+/* Boutons du menu */
+.bloc_action {
+  background-color: #212121;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.bloc_action:hover {
+  background-color: #1565c0;
+}
+
+.bloc_action.primary {
+  background-color: #1e88e5;
+}
+
+.bloc_action.primary:hover {
+  background-color: #1565c0;
+}
+
+/* ---------- CONTENU PRINCIPAL ---------- */
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 40px 0 10px 80px;
+}
+
+p.subtitle {
+  font-size: 18px;
+  color: #777;
+  margin-left: 80px;
+}
+
+.map_container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+  border-radius: 12px;
+  overflow: auto;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+}
+
+.map_container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- TABLEAU DES BATEAUX ---------- */
+
+.table_container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ccc;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.table_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table_header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529;
+}
+
+.table_info {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.table_wrapper {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+#bateauTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+#bateauTable thead {
+  background-color: #e9ecef;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+#bateauTable th {
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+#bateauTable td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+#bateauTable tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+#bateauTable tbody tr.selected {
+  background-color: #e3f2fd;
+}
+
+/* Colonnes avec tailles spécifiques */
+.col-select {
+  width: 60px;
+  text-align: center;
+}
+
+.col-mmsi {
+  width: 100px;
+}
+
+.col-nom {
+  width: 150px;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.col-dimension {
+  width: 80px;
+}
+
+.col-coordinate {
+  width: 110px;
+}
+
+.col-speed {
+  width: 70px;
+}
+
+.col-course {
+  width: 80px;
+}
+
+.col-timestamp {
+  width: 140px;
+  font-size: 11px;
+}
+
+/* Boutons radio personnalisés */
+.radio_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio_container input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #1e88e5;
+}
+
+/* ---------- INFORMATIONS BATEAU SÉLECTIONNÉ ---------- */
+
+.bateau_info {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px 24px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #1e88e5;
+}
+
+.bateau_info h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e88e5;
+}
+
+.info_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn_clear {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.btn_clear:hover {
+  background-color: #c82333;
+}
+
+/* ---------- page ajouter_mon_bateau ---------- */
+.map_container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .map_container td {
+    padding: 12px 10px;
+    vertical-align: top;
+  }
+
+  .map_container td:first-child {
+    width: 40%;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  input[type="number"],
+  input[type="text"],
+  input[type="datetime-local"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #9ed9fb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #007BFF;
+  }
+
+/* ---------- IMAGES ACCEUIL ---------- */
+.image_grid {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.image_item {
+  text-align: center;
+}
+
+.image_item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover; /* Cela crop l'image */
+  border-radius: 12px; /* Facultatif : coins arrondis */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Facultatif : ombre douce */
+}
+
+/* ---------- Liens ---------- */
+a{
+    color: #00acc1;
+}
+
+a:hover {
+    color: #002b45;
+}
+a {
+  text-decoration: none;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+  background-color: #9ed9fb;
+  padding: 48px 80px;
+  color: #000;
+}
+
+.footer_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer_logo {
+  flex: 1 1 200px;
+}
+
+.logo_footer_img {
+  height: 92px;
+  width: auto;
+}
+
+.baseline {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.footer_contact,
+.footer_about {
+  flex: 1 1 200px;
+}
+
+.footer_contact h4,
+.footer_about h4 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer_contact p,
+.footer_about p,
+.footer_contact a {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.footer_contact a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+  .menu_actions {
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 20px;
+  }
+ 
+  .boutons_menu {
+    justify-content: center;
+  }
+ 
+  h1 {
+    margin-left: 20px;
+    font-size: 28px;
+  }
+ 
+  p.subtitle {
+    margin-left: 20px;
+  }
+ 
+  .table_container,
+  .map_container,
+  .bateau_info {
+    width: 95%;
+    margin: 20px auto;
+  }
+ 
+  .table_wrapper {
+    max-height: 150px;
+  }
+ 
+  .footer {
+    padding: 24px 20px;
+  }
+}

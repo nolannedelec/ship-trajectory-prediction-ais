@@ -1,0 +1,134 @@
+<!DOCTYPE html> <!-- Déclare que le document est en HTML5 -->
+<html>
+<head>
+    <link rel="icon" type="image/png" href="images/logo_header.png" />
+    <!-- Importation de la police "Inter" depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    
+    <!-- Importation de la police "Roboto" depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+
+    <!-- Lien vers la feuille de styles principale du projet -->
+    <link href="./css/main.css" rel="stylesheet" />
+    
+    <!-- Lien vers le CSS de la bibliothèque Leaflet pour les cartes -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
+    <title>Prédiction de Trajectoire - Navitrack</title>
+</head>
+<body>
+    <!-- EN-TÊTE DE LA PAGE (menu de navigation) -->
+    <header class="menu_actions">
+        <div class="logo_header"> <!-- Conteneur du logo -->
+          <!-- Lien vers la page d'accueil, s'ouvre dans un nouvel onglet -->
+          <a href="acceuil.html" target="_blank"><img src="images/logo_header.png" alt="Logo Navitrack" class="logo_img" /></a>
+        </div>
+
+        <!-- Boutons de navigation dans l'en-tête -->
+        <div class="boutons_menu">
+          <!-- Lien vers la page pour ajouter un bateau -->
+          <a href="ajouter_mon_bateau.html" target="_blank"><div class="bloc_action"><span class="texte_action">Ajouter mon bateau</span></div></a>
+
+          <!-- Lien vers la page de visualisation de bateau -->
+          <a href="visualisation.html" target="_blank"><div class="bloc_action"><span class="texte_action">Voir mon bateau</span></div></a>
+
+          <!-- Lien actif vers la page actuelle : prédiction de type de bateau -->
+          <a href="typetrajectoire.html" target="_blank"><div class="bloc_action primary"><span class="texte_action">De quel type est mon bateau?</span></div></a>
+        </div>
+    </header>
+
+    <!-- CONTENU PRINCIPAL DE LA PAGE -->
+    <main class="main-content">
+        <!-- Section d'introduction -->
+        <section class="intro-section">
+            <h1>Prédire le type de bateau et sa trajectoire</h1> <!-- Titre principal -->
+            <p class="subtitle">
+                Sélectionnez un bateau et choisissez le type de prédiction que vous souhaitez effectuer.<br />
+                La trajectoire sera affichée en temps réel sur la carte interactive.
+            </p>
+        </section>
+
+        <!-- Section de configuration de la prédiction -->
+        <section class="controls-section">
+            <h2>Configuration de la prédiction</h2>
+            
+            <div id="liste_bateaux"> <!-- Conteneur pour le menu de sélection de bateau (inséré par JS) -->
+                <div class="form-group">
+                    <label for="bateau_selection">Sélection du bateau :</label>
+                    <!-- Message temporaire en attendant le chargement dynamique via JavaScript -->
+                    <p>Chargement des bateaux en cours...</p>
+                </div>
+            </div>
+
+            <!-- Boutons d'action pour les prédictions -->
+            <div class="action-buttons">
+                <!-- Bouton pour lancer la prédiction de trajectoire -->
+                <button id="predictTraj" class="bloc_action">🎯 Prédire la trajectoire</button>
+
+                <!-- Bouton pour aller vers la page de prédiction de type -->
+                <a href="predict_type.html"><button class="bloc_action">Prédire le type</button></a>
+            </div>
+        </section>
+
+        <!-- Section contenant la carte Leaflet -->
+        <section class="map_container">
+            <div id="map" class="map"></div> <!-- Div destinée à recevoir la carte -->
+        </section>
+
+        <!-- Légende de la carte -->
+        <div class="legend">
+            <h4>Légende de la carte</h4>
+            <div class="legend-item">
+                <div class="legend-color legend-blue"></div> <!-- Couleur bleue pour la position actuelle -->
+                <span>Position actuelle du bateau</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-red"></div> <!-- Couleur rouge pour la position prédite -->
+                <span>Position prédite</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-green"></div> <!-- Couleur verte pour la trajectoire -->
+                <span>Trajectoire prédite</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer class="footer">
+        <div class="footer_container">
+            <!-- Logo + baseline -->
+            <div class="footer_logo">
+                <br>
+                <img src="images/logo_footer.png" alt="Logo Navitrack" class="logo_footer_img" />
+            </div>
+
+            <!-- Bloc de contact -->
+            <div class="footer_contact">
+                <h4>Des questions ?</h4>
+                <p>tel: +33*********</p> <!-- Numéro de téléphone (à compléter) -->
+                <p>email: navitrack@*********</p> <!-- Email de contact (à compléter) -->
+                <a href="#">Nous contacter</a> <!-- Lien vers formulaire de contact -->
+            </div>
+
+            <!-- Informations sur l'équipe -->
+            <div class="footer_about">
+                <h4>À propos de nous</h4>
+                <p>Célian BOSSER</p>
+                <p>Nolan JAUFFRIT</p>
+                <p>Nolan NEDELEC</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Importation de la bibliothèque Leaflet JS pour afficher la carte -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+    <!-- Script JavaScript spécifique à cette page -->
+    <script src="js/type_trajectoire.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="images/logo_header.png" />
+    <meta charset="UTF-8" />
+    <title>Classer mon bateau</title>
+
+    <!-- Importation des polices Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    
+    <!-- Feuille de style personnalisée -->
+    <link href="./css/main.css" rel="stylesheet" />
+    
+    <!-- Feuille de style pour Leaflet (la carte) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Style CSS pour la carte et la légende -->
+    <style>
+      #mapid {
+        height: 600px;
+        width: 90%;
+        margin: 40px auto;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+      }
+      .legend {
+        background: white;
+        padding: 10px;
+        line-height: 1.5;
+        border-radius: 5px;
+      }
+      .legend span {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 6px;
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- En-tête avec menu de navigation -->
+    <header class="menu_actions">
+      <div class="logo_header">
+        <!-- Logo avec lien vers la page d'accueil -->
+        <a href="accueil.html" target="_blank"><img src="images/logo_header.png" alt="Logo Navitrack" class="logo_img" /></a>
+      </div>
+      <div class="boutons_menu">
+        <!-- Boutons de navigation vers différentes pages du projet -->
+        <a href="ajouter_mon_bateau.html" target="_blank"><div class="bloc_action"><span class="texte_action">Ajouter mon bateau</span></div></a>
+        <a href="visualisation.html" target="_blank"><div class="bloc_action"><span class="texte_action">Voir mon bateau</span></div></a>
+        <a href="cluster.html" target="_blank"><div class="bloc_action primary"><span class="texte_action">Classer mon bateau</span></div></a>
+        <a href="typetrajectoire.html" target="_blank"><div class="bloc_action"><span class="texte_action">De quel type est mon bateau?</span></div></a>
+      </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main>
+      <section style="margin: 40px 80px;">
+        <h1>Carte des clusters</h1>
+        <p class="subtitle">
+          Cette carte affiche les bateaux automatiquement regroupés par comportement de navigation.
+        </p>
+      </section>
+
+      <!-- Conteneur de la carte Leaflet -->
+      <section class="map_container" style="margin-bottom: 40px;">
+        <div id="mapid"></div>
+      </section>
+    </main>
+
+    <!-- Pied de page avec informations de contact -->
+    <footer class="footer">
+      <div class="footer_container">
+        <div class="footer_logo">
+          <br>
+          <img src="images/logo_footer.png" alt="Logo Navitrack" class="logo_footer_img" />
+        </div>
+        <div class="footer_contact">
+          <h4>Des questions ?</h4>
+          <p>tel: +33*********</p>
+          <p>email: navitrack@*********</p>
+          <a href="#">Nous contacter</a>
+        </div>
+        <div class="footer_about">
+          <h4>À propos de nous</h4>
+          <p>Célian BOSSER</p>
+          <p>Nolan JAUFFRIT</p>
+          <p>Nolan NEDELEC</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script Leaflet pour afficher la carte -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+      // Initialise la carte centrée sur une position avec un zoom donné
+      const map = L.map("mapid").setView([28.5, -90.0], 6);
+
+      // Ajoute les tuiles OpenStreetMap à la carte
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+        maxZoom: 18
+      }).addTo(map);
+
+      // Couleurs utilisées pour représenter les différents clusters
+      const clusterColors = [
+        "#e41a1c", "#377eb8", "#4daf4a", "#984ea3",
+        "#ff7f00", "#ffff33", "#a65628", "#f781bf", "#999999"
+      ];
+
+      // Fonction qui retourne la couleur associée à un cluster donné
+      function getColor(cluster) {
+        return clusterColors[cluster % clusterColors.length];
+      }
+
+      // Requête vers le serveur pour récupérer les données de clustering
+      fetch("./php/predictCluster.php")
+        .then(response => response.json()) // Conversion de la réponse en JSON
+        .then(data => {
+          if (data.error) {
+            console.error("Erreur :", data.error);
+            return;
+          }
+
+          // Pour chaque bateau dans les données, créer un marqueur coloré
+          data.forEach(bateau => {
+            const { lat, lon, cluster, mmsi } = bateau;
+            if (!lat || !lon) return; // Ignore les données incomplètes
+
+            // Création d’un marqueur circulaire coloré selon le cluster
+            const marker = L.circleMarker([lat, lon], {
+              radius: 8,
+              fillColor: getColor(cluster),
+              color: "#333",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.9
+            });
+
+            // Affiche les infos du bateau au clic sur le point
+            marker.bindPopup(`<b>MMSI:</b> ${mmsi}<br><b>Cluster:</b> ${cluster}`);
+            marker.addTo(map); // Ajoute le point sur la carte
+          });
+        })
+        .catch(err => {
+          // Gestion des erreurs réseau ou serveur
+          console.error("Erreur lors du fetch :", err);
+        });
+
+      // Ajout d’une légende des clusters sur la carte
+      const legend = L.control({ position: "bottomright" });
+
+      legend.onAdd = function () {
+        const div = L.DomUtil.create("div", "legend");
+        let html = "<b>Clusters</b><br>";
+        // Crée une ligne de légende pour chaque cluster
+        for (let i = 0; i < clusterColors.length; i++) {
+          html += `<span style="background:${clusterColors[i]}"></span> Cluster ${i}<br>`;
+        }
+        div.innerHTML = html;
+        return div;
+      };
+
+      legend.addTo(map); // Ajoute la légende à la carte
+    </script>
+  </body>
+</html>

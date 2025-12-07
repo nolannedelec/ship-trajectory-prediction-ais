@@ -1,0 +1,145 @@
+<!DOCTYPE html> <!-- Déclare le type de document : ici HTML5 -->
+<html> <!-- Balise racine du document HTML -->
+  <head> <!-- Début de l’en-tête contenant les métadonnées -->
+   
+    <!-- Lien vers la police "Inter" hébergée sur Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+
+    <!-- Lien vers une feuille de style CSS locale -->
+    <link href="./css/main.css" rel="stylesheet" />
+
+    <!-- Changement de l'icon du site internet. -->
+    <link rel="icon" type="image/png" href="images/logo_header.png" />
+
+
+    <!-- Titre de l’onglet dans le navigateur -->
+    <title>Document</title>
+  </head>
+
+  <body> <!-- Début du contenu visible de la page -->
+   
+    <!-- En-tête du site contenant le logo et le menu -->
+    <header class="menu_actions">
+     
+      <!-- Bloc contenant le logo de l'en-tête -->
+      <div class="logo_header">
+        <!-- Lien vers la page d'accueil, s’ouvre dans un nouvel onglet -->
+        <a href="accueil.html" target="_blank">
+          <!-- Image du logo avec description alternative et classe de style -->
+          <img src="images/logo_header.png" alt="Logo Navitrack" class="logo_img" />
+        </a>
+      </div>
+
+      <!-- Bloc contenant les boutons du menu -->
+      <div class="boutons_menu">
+
+        <!-- Lien vers la page pour ajouter un bateau -->
+        <a href="ajouter_mon_bateau.html" target="_blank">
+          <div class="bloc_action"><span class="texte_action">Ajouter mon bateau</span></div>
+        </a>
+
+        <!-- Lien vers la page de visualisation des bateaux -->
+        <a href="visualisation.html" target="_blank">
+          <div class="bloc_action"><span class="texte_action">Voir mon bateau</span></div>
+        </a>
+
+
+        <!-- Lien vers la page de typage des trajectoires -->
+        <a href="typetrajectoire.html" target="_blank">
+          <div class="bloc_action"><span class="texte_action">De quel type est mon bateau?</span></div>
+        </a>
+
+      </div>
+    </header>
+
+    <!-- Contenu principal de la page -->
+    <main style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
+
+      <!-- Section d’introduction avec un texte descriptif -->
+      <section style="margin-bottom: 40px;">
+        <h1>Bienvenue sur NaviTrack</h1>
+
+        <!-- Paragraphe de présentation, justifié -->
+        <p class="subtitle" style="text-align: justify;">
+          NaviTrack est une plateforme intelligente dédiée à la visualisation et la prédiction des trajectoires maritimes.
+          Grâce à l’analyse de données AIS (Automatic Identification System), nous offrons des outils performants pour suivre en temps réel les navires, anticiper leurs déplacements et optimiser la sécurité et la gestion maritime.
+        </p>
+
+        <!-- Image illustrative de la plateforme -->
+        <div class="map_container">
+          <img src="images/cargo_acceuil.png" alt="carte" class="map" />
+        </div>
+      </section>
+
+      <!-- Section avec 4 icônes cliquables menant aux différentes fonctionnalités -->
+      <section style="margin-bottom: 60px;">
+        <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+         
+          <!-- Lien avec image et texte pour "Ajouter mon bateau" -->
+          <a href="ajouter_mon_bateau.html" target="_blank">
+            <div style="text-align: center;">
+              <img src="images/acceuil_ajouter.png" alt="Ajouter mon bateau" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px;" />
+              <p>Ajouter mon bateau</p>
+            </div>
+          </a>
+
+          <!-- Lien avec image et texte pour "Voir mon bateau" -->
+          <a href="visualisation.html" target="_blank">
+            <div style="text-align: center;">
+              <img src="images/acceuil_visualiser.png" alt="Voir mon bateau" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px;" />
+              <p>Voir mon bateau</p>
+            </div>
+          </a>
+
+          <!-- Lien avec image et texte pour "Classer mon bateau" -->
+          <a href="cluster.html" target="_blank">
+            <div style="text-align: center;">
+              <img src="images/acceuil_cluster.png" alt="Classer mon bateau" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px;" />
+              <p>Classer mon bateau</p>
+            </div>
+          </a>
+
+          <!-- Lien avec image et texte pour "Type de mon bateau" -->
+          <a href="typetrajectoire.html" target="_blank">
+            <div style="text-align: center;">
+              <img src="images/acceuil_classer_bateau.png" alt="De quel type est mon bateau" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px;" />
+              <p>Type de mon bateau</p>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Pied de page avec logo, contact et infos sur les auteurs -->
+    <footer class="footer">
+      <div class="footer_container">
+
+        <!-- Bloc logo du footer -->
+        <div class="footer_logo">
+          <br> <!-- Saut de ligne visuel -->
+          <img src="images/logo_footer.png" alt="Logo Navitrack" class="logo_footer_img" />
+        </div>
+
+        <!-- Bloc contact -->
+        <div class="footer_contact">
+          <h4>Des questions ?</h4>
+          <p>tel: +33*********</p>
+          <p>email: navitrack@*********</p>
+          <a href="#">Nous contacter</a> <!-- Lien de contact (à compléter) -->
+        </div>
+
+        <!-- Bloc "À propos" avec les noms des créateurs -->
+        <div class="footer_about">
+          <h4>À propos de nous</h4>
+          <p>Célian BOSSER</p>
+          <p>Nolan JAUFFRIT</p>
+          <p>Nolan NEDELEC</p>
+        </div>
+
+      </div>
+    </footer>
+
+  </body>
+</html>

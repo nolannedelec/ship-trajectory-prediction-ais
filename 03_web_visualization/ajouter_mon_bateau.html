@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="icon" type="image/png" href="images/logo_header.png" />
+  <!-- Déclaration de l'encodage des caractères -->
+  <meta charset="UTF-8" />
+  <!-- Adaptation responsive pour mobiles/tablettes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Titre de l'onglet -->
+  <title>Ajouter mon bateau</title>
+
+  <!-- Importation de la police Inter depuis Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+  <!-- Feuille de style principale du site -->
+  <link href="./css/main.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- ====== EN-TÊTE DU SITE ====== -->
+  <header class="menu_actions">
+    <!-- Logo cliquable vers la page d’accueil -->
+    <div class="logo_header">
+      <a href="accueil.html" target="_blank">
+        <img src="images/logo_header.png" alt="Logo Navitrack" class="logo_img" />
+      </a>
+    </div>
+
+    <!-- Menu de navigation -->
+    <div class="boutons_menu">
+      <a href="ajouter_mon_bateau.html" target="_blank">
+        <div class="bloc_action primary">
+          <span class="texte_action">Ajouter mon bateau</span>
+        </div>
+      </a>
+      <a href="visualisation.html" target="_blank">
+        <div class="bloc_action">
+          <span class="texte_action">Voir mon bateau</span>
+        </div>
+      </a>
+      <a href="typetrajectoire.html" target="_blank">
+        <div class="bloc_action">
+          <span class="texte_action">De quel type est mon bateau?</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- ====== CONTENU PRINCIPAL ====== -->
+  <main>
+    <!-- Titre principal de la page -->
+    <h1>Ajouter votre bateau</h1>
+
+    <!-- Conteneur centré pour le formulaire -->
+    <div class="map_container" style="display: flex; justify-content: center;">
+      <!-- Formulaire d'ajout de bateau -->
+      <form id="boatForm">
+        <table>
+          <!-- Champ : nom du navire -->
+          <tr>
+            <td><label for="fnavire_name">Nom du navire:</label></td>
+            <td><input type="text" id="fnavire_name" name="fnavire_name" required></td>
+          </tr>
+
+          <!-- Champ : état du navire (chargé dynamiquement en JS) -->
+          <tr>
+            <td><label for="fnavire_state">État du navire:</label></td>
+            <td>
+              <select id="fnavire_state" name="fnavire_state" required>
+                <option value="" disabled selected>Chargement des états...</option>
+              </select>
+            </td>
+          </tr>
+
+          <!-- Champ : MMSI (identifiant unique maritime) -->
+          <tr>
+            <td><label for="fnavire_mmsi">MMSI:</label></td>
+            <td>
+              <input type="number" id="fnavire_mmsi" name="fnavire_mmsi" required 
+                     pattern="\d{9}" title="Le MMSI doit être un numéro à 9 chiffres">
+            </td>
+          </tr>
+
+          <!-- Champ : longueur du navire -->
+          <tr>
+            <td><label for="fnavire_length">Longueur (m):</label></td>
+            <td><input type="number" step="0.1" id="fnavire_length" name="fnavire_length" required></td>
+          </tr>
+
+          <!-- Champ : largeur du navire -->
+          <tr>
+            <td><label for="fnavire_width">Largeur (m):</label></td>
+            <td><input type="number" step="0.1" id="fnavire_width" name="fnavire_width" required></td>
+          </tr>
+
+          <!-- Champ : tirant d’eau du navire -->
+          <tr>
+            <td><label for="fnavire_draft">Tirant d'eau (m):</label></td>
+            <td><input type="number" step="0.1" id="fnavire_draft" name="fnavire_draft" required></td>
+          </tr>
+
+          <!-- Champ : horodatage de la donnée -->
+          <tr>
+            <td><label for="fnavire_hour">Horodatage:</label></td>
+            <td><input type="datetime-local" id="fnavire_hour" name="fnavire_hour" required></td>
+          </tr>
+
+          <!-- Champ : latitude -->
+          <tr>
+            <td><label for="fnavire_lat">Latitude:</label></td>
+            <td><input type="number" step="0.000001" id="fnavire_lat" name="fnavire_lat" required></td>
+          </tr>
+
+          <!-- Champ : longitude -->
+          <tr>
+            <td><label for="fnavire_lon">Longitude:</label></td>
+            <td><input type="number" step="0.000001" id="fnavire_lon" name="fnavire_lon" required></td>
+          </tr>
+
+          <!-- Champ : cap (COG) -->
+          <tr>
+            <td><label for="fnavire_COG">COG (°):</label></td>
+            <td><input type="number" step="0.1" id="fnavire_COG" name="fnavire_COG" required></td>
+          </tr>
+
+          <!-- Champ : cap réel -->
+          <tr>
+            <td><label for="fnavire_heading">Cap réel (°):</label></td>
+            <td><input type="number" step="0.1" id="fnavire_heading" name="fnavire_heading" required></td>
+          </tr>
+
+          <!-- Champ : vitesse (SOG) -->
+          <tr>
+            <td><label for="fnavire_sog">Vitesse (SOG, nœuds):</label></td>
+            <td><input type="number" step="0.1" id="fnavire_sog" name="fnavire_sog" required></td>
+          </tr>
+        </table>
+
+        <!-- Bouton de validation du formulaire -->
+        <br>
+        <button type="submit">Valider</button>
+        <br><br><br>
+      </form>
+    </div>
+
+    <!-- Zone d'affichage des messages (succès ou erreur) -->
+    <div id="message"></div>
+  </main>
+
+  <!-- ====== PIED DE PAGE ====== -->
+  <footer class="footer">
+    <div class="footer_container">
+      <div class="footer_logo">
+        <br>
+        <img src="images/logo_footer.png" alt="Logo Navitrack" class="logo_footer_img" />
+      </div>
+
+      <div class="footer_contact">
+        <h4>Des questions ?</h4>
+        <p>tel: +33*********</p>
+        <p>email: navitrack@*********</p>
+        <a href="#">Nous contacter</a>
+      </div>
+
+      <div class="footer_about">
+        <h4>À propos de nous</h4>
+        <p>Célian BOSSER</p>
+        <p>Nolan JAUFFRIT</p>
+        <p>Nolan NEDELEC</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script JS chargé à la fin pour gérer le formulaire -->
+  <script src="js/ajouter_bateau.js"></script>
+</body>
+</html>
